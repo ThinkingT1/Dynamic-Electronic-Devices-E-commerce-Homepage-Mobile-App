@@ -61,45 +61,62 @@ class _MainLayoutState extends State<MainLayout> {
       ),
       // ---
       body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.primary,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        selectedItemColor: AppColors.white,
-        unselectedItemColor: AppColors.white.withOpacity(0.7),
-        selectedLabelStyle:
-        const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-        unselectedLabelStyle: const TextStyle(fontSize: 12),
-        showUnselectedLabels: true,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Trang chủ',
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          color: AppColors.primary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view_outlined),
-            activeIcon: Icon(Icons.grid_view_rounded),
-            label: 'Danh mục',
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long_outlined),
-            activeIcon: Icon(Icons.receipt_long),
-            label: 'Đơn hàng',
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.transparent, // Quan trọng
+            elevation: 0, // Không đổ bóng làm hở góc
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            selectedItemColor: AppColors.white,
+            unselectedItemColor: AppColors.white.withOpacity(0.7),
+            selectedLabelStyle:
+            const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+            unselectedLabelStyle: const TextStyle(fontSize: 12),
+            showUnselectedLabels: true,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(Icons.home),
+                label: 'Trang chủ',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.grid_view_outlined),
+                activeIcon: Icon(Icons.grid_view_rounded),
+                label: 'Danh mục',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.receipt_long_outlined),
+                activeIcon: Icon(Icons.receipt_long),
+                label: 'Đơn hàng',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.lightbulb_outline),
+                activeIcon: Icon(Icons.lightbulb),
+                label: 'AI hỗ trợ',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline),
+                activeIcon: Icon(Icons.person),
+                label: 'Tài khoản',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.lightbulb_outline),
-            activeIcon: Icon(Icons.lightbulb),
-            label: 'AI hỗ trợ',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
-            label: 'Tài khoản',
-          ),
-        ],
+        ),
       ),
+
     );
   }
 }

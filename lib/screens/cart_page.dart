@@ -3,7 +3,7 @@ import 'package:flutter/services.dart'; // Cần cho định dạng số
 import 'package:ecmobile/theme/app_colors.dart'; // Vẫn dùng 1 số màu chung
 import 'package:ecmobile/models/cart_item_model.dart'; // Model cho item giỏ hàng
 import 'package:intl/intl.dart'; // Thêm thư viện intl để định dạng tiền
-
+import 'package:ecmobile/screens/checkout_page.dart';
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
 
@@ -160,7 +160,7 @@ class _CartPageState extends State<CartPage> {
     final figmaPriceRed = const Color(0xFFFE3A30);
 
     return Scaffold(
-      backgroundColor: figmaBackgroundColor, // Màu nền xám nhạt
+      backgroundColor: Color(0xFFF1F1F1), // Màu nền xám nhạt
       appBar: _buildCartAppBar(figmaBlue),
       body: cartItems.isEmpty
           ? Center(
@@ -617,10 +617,31 @@ class _CartPageState extends State<CartPage> {
                 child: ElevatedButton(
                   onPressed: totalPrice > 0
                       ? () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Tiến hành thanh toán...'),
-                        duration: Duration(seconds: 2),
+                    // 1. Lọc ra danh sách sản phẩm đã chọn
+                    final List<CartItemModel> selectedItems = cartItems
+                        .where((item) => item.isSelected)
+                        .toList();
+
+                    // 2. Kiểm tra nếu có sản phẩm được chọn
+                    if (selectedItems.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                              'Vui lòng chọn ít nhất một sản phẩm để mua.'),
+                          duration: Duration(seconds: 2),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                      return; // Dừng lại nếu không có gì được chọn
+                    }
+
+                    // 3. Điều hướng đến trang Checkout và truyền dữ liệu
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CheckoutPage(
+                          itemsToCheckout: selectedItems,
+                        ),
                       ),
                     );
                   }
