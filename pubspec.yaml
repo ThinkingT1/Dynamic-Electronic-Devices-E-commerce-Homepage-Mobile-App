@@ -46,7 +46,7 @@ dev_dependencies:
   # rules and activating additional ones.
   intl: ^0.18.0
   flutter_lints: ^5.0.0
-
+  carousel_slider: ^4.2.1
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -92,3 +92,8 @@ flutter:
     # - assets/images/
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+dependency_overrides:
+  carousel_slider:
+    git:
+      url: https://github.com/serenader2014/flutter_carousel_slider.git
+      ref: master
