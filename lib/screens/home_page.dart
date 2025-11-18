@@ -103,7 +103,6 @@ class _HomePageState extends State<HomePage> {
       'installment': 'Trả góp 0%',
       'rating': 4.3,
     },
-    // Thêm sản phẩm để test phân trang
     {
       'brand': 'Samsung',
       'image':
@@ -115,6 +114,54 @@ class _HomePageState extends State<HomePage> {
       'discount': 'Giảm 15%',
       'installment': 'Trả góp 0%',
       'rating': 4.5,
+    },
+    {
+      'brand': 'Xiaomi',
+      'image':
+      'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-12-pro-5g_1_.png',
+      'name': 'Redmi Note 12 Pro',
+      'specs': '8GB | 128GB',
+      'price': '7.190.000đ',
+      'oldPrice': '7.990.000đ',
+      'discount': 'Giảm 10%',
+      'installment': 'Trả góp 0%',
+      'rating': 4.4,
+    },
+    {
+      'brand': 'Apple',
+      'image':
+      'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-11.png',
+      'name': 'iPhone 11',
+      'specs': '4GB | 64GB',
+      'price': '10.350.000đ',
+      'oldPrice': '11.990.000đ',
+      'discount': 'Giảm 13%',
+      'installment': 'Trả góp 0%',
+      'rating': 4.8,
+    },
+    {
+      'brand': 'Vivo',
+      'image':
+      'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-y35-vang-1.jpg',
+      'name': 'Vivo Y35',
+      'specs': '8GB | 128GB',
+      'price': '5.690.000đ',
+      'oldPrice': '6.990.000đ',
+      'discount': 'Giảm 19%',
+      'installment': 'Trả góp 0%',
+      'rating': 4.2,
+    },
+    {
+      'brand': 'Samsung',
+      'image':
+      'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-a34-5g-bac-1.jpg',
+      'name': 'Samsung Galaxy A34',
+      'specs': '8GB | 128GB',
+      'price': '7.490.000đ',
+      'oldPrice': '8.490.000đ',
+      'discount': 'Giảm 11%',
+      'installment': 'Trả góp 0%',
+      'rating': 4.6,
     },
   ];
 
@@ -167,7 +214,6 @@ class _HomePageState extends State<HomePage> {
       'installment': 'Trả góp 0%',
       'rating': 4.3,
     },
-    // --- THÊM SẢN PHẨM ĐỂ TẠO TRANG 2 ---
     {
       'brand': 'Acer',
       'image':
@@ -193,17 +239,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // --- 1. TÍNH TOÁN CHIỀU CAO ĐỘNG CHO SLIDER ---
-    // Lấy chiều rộng màn hình
     double screenWidth = MediaQuery.of(context).size.width;
-    // Tính chiều rộng 1 item (trừ padding 32.0 và spacing 16.0)
     double itemWidth = (screenWidth - 32.0 - 16.0) / 2;
-    // Tỷ lệ thẻ mong muốn (0.5 sẽ làm thẻ cao gấp đôi chiều rộng)
-    double childAspectRatio = 0.5;
-    // Tính chiều cao 1 item
+    double childAspectRatio = 0.45;
     double itemHeight = itemWidth / childAspectRatio;
-    // Chiều cao tổng slider = 2 hàng item + spacing dọc
-    double sliderHeight = (itemHeight * 2) + 40.0; // Thêm 40px dư dả
+    double sliderHeight = (itemHeight * 2) + 16.0 + 32.0 + 20.0;
 
     return SingleChildScrollView(
       child: Column(
@@ -215,9 +255,10 @@ class _HomePageState extends State<HomePage> {
           _buildFilterChips(),
           _buildAdBanner(
               'https://cdn.tgdd.vn/Products/Images/522/294104/Slider/ipad-pro-m2-11-inch638035032348738269.jpg'),
+
+          // --- ĐÃ SỬA: Category Slider ---
           _buildCategorySlider(),
 
-          // Truyền sliderHeight vào các hàm để dùng
           _buildPhoneSection(sliderHeight, childAspectRatio),
           _buildLaptopSection(sliderHeight, childAspectRatio),
 
@@ -250,8 +291,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildScrollIndicator(
       {required int currentIndex, required int totalCount}) {
-    // Hiển thị ngay cả khi chỉ có 1 trang để giữ bố cục (hoặc ẩn tùy bạn)
-    // if (totalCount <= 1) return SizedBox.shrink();
+    if (totalCount <= 1) return SizedBox.shrink();
     const double indicatorWidth = 100.0;
     const double indicatorHeight = 4.0;
 
@@ -324,7 +364,9 @@ class _HomePageState extends State<HomePage> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 200.0,
+            // --- SỬA LỖI OVERFLOW Ở ĐÂY ---
+            // Tăng chiều cao từ 200 -> 240 để chứa đủ icon và text
+            height: 240.0,
             viewportFraction: 1.0,
             enableInfiniteScroll: false,
             autoPlay: false,
@@ -342,7 +384,9 @@ class _HomePageState extends State<HomePage> {
                 crossAxisCount: 5,
                 crossAxisSpacing: 16.0,
                 mainAxisSpacing: 16.0,
-                childAspectRatio: 0.8,
+                // --- SỬA LỖI OVERFLOW Ở ĐÂY ---
+                // Giảm tỷ lệ để ô danh mục cao hơn, tránh bị cắt chữ
+                childAspectRatio: 0.7,
               ),
               itemCount: pageData.length,
               itemBuilder: (context, index) {
@@ -359,12 +403,15 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.blue.shade700, size: 30),
                     ),
                     SizedBox(height: 8),
-                    Text(
-                      category['title'],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    // Dùng Flexible để text có thể xuống dòng nếu cần mà không gây lỗi
+                    Flexible(
+                      child: Text(
+                        category['title'],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 12),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 );
@@ -415,7 +462,7 @@ class _HomePageState extends State<HomePage> {
         if (productPages.isNotEmpty) ...[
           CarouselSlider(
             options: CarouselOptions(
-              height: sliderHeight, // Sử dụng chiều cao đã tính toán
+              height: sliderHeight,
               viewportFraction: 1.0,
               enableInfiniteScroll: false,
               onPageChanged: (index, reason) {
@@ -432,7 +479,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
-                  childAspectRatio: aspectRatio, // Sử dụng tỷ lệ đã tính toán
+                  childAspectRatio: aspectRatio,
                 ),
                 itemCount: pageProducts.length,
                 itemBuilder: (context, index) {
@@ -528,7 +575,7 @@ class _HomePageState extends State<HomePage> {
         if (productPages.isNotEmpty) ...[
           CarouselSlider(
             options: CarouselOptions(
-              height: sliderHeight, // Sử dụng chiều cao đã tính toán
+              height: sliderHeight,
               viewportFraction: 1.0,
               enableInfiniteScroll: false,
               onPageChanged: (index, reason) {
@@ -545,7 +592,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
-                  childAspectRatio: aspectRatio, // Sử dụng tỷ lệ đã tính toán
+                  childAspectRatio: aspectRatio,
                 ),
                 itemCount: pageProducts.length,
                 itemBuilder: (context, index) {
@@ -772,7 +819,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          // Sử dụng Expanded để nội dung chiếm hết không gian còn lại
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
