@@ -111,7 +111,7 @@ git push
 
 ---
 
-### 5️⃣ Cập nhật code mới nhất từ nhóm (mỗi khi bắt đầu làm)
+### 5️⃣ Cập nhật code mới nhất từ nhóm (mỗi khi bắt đầu làm) (khi nào t merge thì mới chạy cái này ko thì cứ đẩy lên nhánh bây bth)
 ```bash
 git checkout develop
 git pull origin develop
