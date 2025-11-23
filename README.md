@@ -60,7 +60,7 @@ git push -u origin develop
 
 ---
 
-## 💻 III. Các thao tác chung cho tất cả thành viên
+## 💻 III. Các thao tác chung cho tất cả thành viên (coi từ đây)
 
 ### 1️⃣ Clone dự án về máy
 ```bash
@@ -68,7 +68,7 @@ git clone https://github.com/Thangnguyen252/ecmobile.git
 cd ecmobile
 ```
 
-Hoặc trong Android Studio:  
+Hoặc trong Android Studio: (nên dùng cách này) 
 > File → New → Project from Version Control → Git → Paste URL
 
 ---
@@ -93,7 +93,7 @@ git pull origin develop
 | F | `feature/profile` |
 | G | `feature/order` |
 
-Câu lệnh:
+Câu lệnh: (bước này gõ tay ra tên nhánh nhé, đặt tên theo chức năng ae làm nha)
 ```bash
 git checkout -b feature/admin_dashboard
 git push -u origin feature/admin_dashboard
@@ -111,7 +111,7 @@ git push
 
 ---
 
-### 5️⃣ Cập nhật code mới nhất từ nhóm (mỗi khi bắt đầu làm)
+### 5️⃣ Cập nhật code mới nhất từ nhóm (mỗi khi bắt đầu làm) (khi nào t merge thì mới chạy cái này ko thì cứ đẩy lên nhánh bây bth)
 ```bash
 git checkout develop
 git pull origin develop
@@ -181,28 +181,7 @@ git push origin main
 
 ---
 
-## 📦 VIII. Gợi ý cấu trúc thư mục Flutter nhóm nên thống nhất
 
-```
-lib/
- ├── main.dart
- ├── theme/
- │     ├── app_colors.dart
- │     ├── app_text_styles.dart
- │     └── app_theme.dart
- ├── modules/
- │     ├── home/
- │     ├── product_detail/
- │     ├── cart/
- │     ├── auth/
- │     ├── profile/
- │     └── order/
- ├── widgets/
- └── services/
-       └── firebase_service.dart
-```
-
----
 
 ## ✅ Kết quả mong đợi
 
