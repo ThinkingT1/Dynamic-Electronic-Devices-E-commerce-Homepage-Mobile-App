@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:ecmobile/theme/app_colors.dart';
-// SỬA LẠI ĐƯỜNG DẪN: Thêm 'layouts/' và dùng 'package:'
 import 'package:ecmobile/layouts/main_layout.dart';
+// 1. IMPORT FILE MỚI
+//import 'package:ecmobile/utils/seed_customer.dart';
+// 1. QUAN TRỌNG: Import file chứa hàm nạp dữ liệu bạn vừa tạo
+// (Đảm bảo bạn đã tạo file lib/utils/seed_data.dart và dán code tôi gửi ở tin nhắn trước)
+//import 'package:ecmobile/utils/seed_data.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // 2. GỌI HÀM NẠP DỮ LIỆU TẠI ĐÂY
+  // Khi chạy App, nó sẽ thực thi hàm này để bắn dữ liệu lên Firebase
+  //print("--- BẮT ĐẦU NẠP DỮ LIỆU ---");
+  //await seedRealData();
+  //await seedCustomerSystem();
+  //print("--- KẾT THÚC NẠP DỮ LIỆU ---");
+
   runApp(const MyApp());
 }
 
@@ -17,23 +36,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: AppColors.primary,
-        scaffoldBackgroundColor: AppColors.background, // Màu nền chung
-
-        // SỬ DỤNG FONT MẶC ĐỊNH:
-        // Xóa hoặc comment (thêm //) dòng này
-        // fontFamily: 'Inter',
-
-        // Tùy chỉnh theme để AppBar và BottomNav không bị màu lạ
+        scaffoldBackgroundColor: AppColors.background,
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.primary,
-          elevation: 0, // Bỏ bóng đổ
+          elevation: 0,
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: AppColors.primary,
           selectedItemColor: AppColors.white,
         ),
       ),
-      home: const MainLayout(), // Bắt đầu với layout chính
+      home: const MainLayout(),
     );
   }
 }
