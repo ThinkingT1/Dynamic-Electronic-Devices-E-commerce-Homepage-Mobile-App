@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+//import 'package:ecmobile/utils/seed_laptop.dart';
 import 'package:ecmobile/theme/app_colors.dart';
 import 'package:ecmobile/layouts/main_layout.dart';
 // 1. IMPORT FILE MỚI
@@ -22,7 +23,9 @@ void main() async {
   //await seedRealData();
   //await seedCustomerSystem();
   //print("--- KẾT THÚC NẠP DỮ LIỆU ---");
-
+ // print("🚀 Bắt đầu nạp Laptop...");
+  //await seedLaptopData();
+  //print("🏁 Kết thúc nạp Laptop.");
   runApp(const MyApp());
 }
 
