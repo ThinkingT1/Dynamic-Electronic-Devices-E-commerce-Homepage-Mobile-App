@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:ecmobile/theme/app_colors.dart';
 import 'package:ecmobile/layouts/main_layout.dart';
+//import 'package:ecmobile/utils/seed_cart_data.dart'; // 2. Import file chứa hàm seed
 // 1. IMPORT FILE MỚI
 //import 'package:ecmobile/utils/seed_customer.dart';
 // 1. QUAN TRỌNG: Import file chứa hàm nạp dữ liệu bạn vừa tạo
@@ -22,7 +23,12 @@ void main() async {
   //await seedRealData();
   //await seedCustomerSystem();
   //print("--- KẾT THÚC NẠP DỮ LIỆU ---");
+  // --- 3. CHẠY SCRIPT NẠP DỮ LIỆU GIỎ HÀNG ---
+  // Bỏ comment dòng dưới đây để chạy script.
+  // Sau khi chạy xong lần đầu tiên và thấy thông báo thành công trên Console,
+  // hãy comment lại dòng này để không nạp lại dữ liệu mỗi lần mở app.
 
+  //await seedInitialCart();
   runApp(const MyApp());
 }
 
