@@ -1,197 +1,116 @@
+Dynamic Electronic Devices E-commerce App 📱
 
-# 📘 HƯỚNG DẪN LÀM VIỆC NHÓM TRÊN GITHUB & ANDROID STUDIO  
-### Dự án Flutter – Cấu trúc 3 nhánh `main` – `develop` – `feature`
+A dynamic e-commerce homepage for a mobile app, developed using Flutter and connected to a Cloud Firestore backend. This project showcases features like image sliders, filterable product sections by brand, and a favorites management system.
 
----
+✨ Features
 
-## 👥 Thành viên nhóm
-| Vai trò | Tên | Nhiệm vụ |
-|----------|------|-----------|
-| 👨‍💼 Trưởng nhóm | Người A | Quản lý repo, merge code, code 1 module (ví dụ: trang admin/dashboard) |
-| 👩‍💻 Thành viên 1 | Người B | Trang chủ |
-| 👨‍💻 Thành viên 2 | Người C | Chi tiết sản phẩm |
-| 👩‍💻 Thành viên 3 | Người D | Giỏ hàng |
-| 👨‍💻 Thành viên 4 | Người E | Đăng nhập / Đăng ký |
-| 👩‍💻 Thành viên 5 | Người F | Hồ sơ người dùng |
-| 👨‍💻 Thành viên 6 | Người G | Thanh toán / Đơn hàng |
+Dynamic Homepage: Real-time data fetching from Cloud Firestore.
 
----
+Interactive UI: Image sliders and brand category filters.
 
-## 🧭 I. Cấu trúc nhánh Git
+State Management: Efficient management of product states and user favorites.
 
-| Nhánh | Mục đích | Ai được push trực tiếp |
-|-------|-----------|--------------------------|
-| **main** | Code ổn định (đã kiểm tra, sẵn sàng release) | ✅ Chỉ trưởng nhóm |
-| **develop** | Code đang phát triển, tích hợp các nhánh feature | ✅ Chỉ trưởng nhóm |
-| **feature/...** | Code của từng thành viên (bao gồm trưởng nhóm) | ✅ Thành viên phụ trách |
+Responsive Design: Optimized for mobile devices.
 
----
+🛠 Prerequisites
 
-## ⚙️ II. Khởi tạo dự án (Trưởng nhóm)
+Before you begin, ensure you have the following installed:
 
-### 1️⃣ Tạo dự án Flutter
-```bash
-flutter create ecmobile
-cd ecmobile
-```
+Flutter SDK
 
-### 2️⃣ Khởi tạo Git cục bộ và commit lần đầu
-```bash
-git init
-git add .
-git commit -m "Initial commit - Flutter project with checkout"
-```
+Android Studio (recommended) or VS Code.
 
-### 3️⃣ Tạo repo trên GitHub
-Repo: [ecmobile](https://github.com/Thangnguyen252/ecmobile)
+Git
 
-### 4️⃣ Kết nối và đẩy code lên GitHub
-```bash
-git remote add origin https://github.com/Thangnguyen252/ecmobile.git
-git branch -M main
-git push -u origin main
-```
+🚀 Getting Started
 
-### 5️⃣ Tạo nhánh `develop`
-```bash
-git checkout -b develop
-git push -u origin develop
-```
+Follow these instructions to get a copy of the project up and running on your local machine.
 
----
+1. Download the Project
 
-## 💻 III. Các thao tác chung cho tất cả thành viên (coi từ đây)
+You can download the source code via Git or directly as a ZIP file.
 
-### 1️⃣ Clone dự án về máy
-```bash
-git clone https://github.com/Thangnguyen252/ecmobile.git
-cd ecmobile
-```
+Option A: Clone via Git (Recommended)
+Open your terminal or command prompt and run:
 
-Hoặc trong Android Studio: (nên dùng cách này) 
-> File → New → Project from Version Control → Git → Paste URL
-
----
-
-### 2️⃣ Chuyển sang nhánh `develop`
-```bash
-git checkout develop
-git pull origin develop
-```
-
----
-
-### 3️⃣ Tạo nhánh `feature` cho mỗi người
-
-| Thành viên | Nhánh feature |
-|-------------|----------------|
-| Trưởng nhóm | `feature/admin_dashboard` |
-| B | `feature/home` |
-| C | `feature/product_detail` |
-| D | `feature/cart` |
-| E | `feature/auth` |
-| F | `feature/profile` |
-| G | `feature/order` |
-
-Câu lệnh: (bước này gõ tay ra tên nhánh nhé, đặt tên theo chức năng ae làm nha)
-```bash
-git checkout -b feature/admin_dashboard
-git push -u origin feature/admin_dashboard
-```
-(Mỗi người thay tên nhánh theo module mình phụ trách)
-
----
-
-### 4️⃣ Làm việc, commit và push code của mình
-```bash
-git add .
-git commit -m "Hoàn thiện giao diện trang Admin"
-git push
-```
-
----
-
-### 5️⃣ Cập nhật code mới nhất từ nhóm (mỗi khi bắt đầu làm) (khi nào t merge thì mới chạy cái này ko thì cứ đẩy lên nhánh bây bth)
-```bash
-git checkout develop
-git pull origin develop
-git checkout feature/admin_dashboard
-git merge develop
-```
-
-→ Đảm bảo code của bạn luôn cập nhật với những thay đổi mới nhất của nhóm.
-
----
-
-## 🧠 IV. Quy trình khi hoàn thành tính năng
-
-### 1️⃣ Thành viên (kể cả trưởng nhóm) tạo **Pull Request (PR)**  
-Trên GitHub:
-- Vào repo → **Pull Requests → New Pull Request**
-- Chọn:
-  - Base branch: `develop`
-  - Compare: `feature/...` của bạn
-- Viết mô tả, gắn nhãn người review (thường là trưởng nhóm)
-- Nhấn **Create Pull Request**
-
----
-
-### 2️⃣ Trưởng nhóm review và merge vào `develop`
-- Kiểm tra code, giao diện, logic.  
-- Nếu ổn → **Merge pull request**  
-- Nếu lỗi → comment để thành viên fix rồi gửi lại PR.
-
----
-
-### 3️⃣ Khi toàn bộ tính năng hoàn thiện
-Trưởng nhóm hợp nhất từ `develop` → `main`:
-```bash
-git checkout main
-git pull origin main
-git merge develop
-git push origin main
-```
+git clone [https://github.com/ThinkingT1/Dynamic-Electronic-Devices-E-commerce-Homepage-Mobile-App.git](https://github.com/ThinkingT1/Dynamic-Electronic-Devices-E-commerce-Homepage-Mobile-App.git)
 
 
+Option B: Download ZIP
+
+Click on the green Code button at the top of this repository.
+
+Select Download ZIP.
+
+Extract the file to your desired folder.
+
+2. Open in Android Studio
+
+Launch Android Studio.
+
+Select File > Open.
+
+Navigate to the folder where you cloned/extracted the project and click OK.
+
+Wait for Android Studio to index the project.
+
+3. Install Dependencies
+
+Open the terminal within Android Studio (usually at the bottom) or your system terminal, navigate to the project root, and run:
+
+flutter pub get
 
 
+4. Firebase Configuration ⚠️ (Crucial Step)
 
-## 🧩 VI. Tóm tắt quy trình thao tác Git
+This project relies on Firebase Cloud Firestore. For security reasons, the google-services.json file is not included in this repository. You must add your own to run the app.
 
-| Vai trò | Công việc | Lệnh chính |
-|----------|------------|-------------|
-| **Trưởng nhóm** | Tạo repo, tạo nhánh chính | `git init`, `git push origin main/develop` |
-| **Tất cả thành viên** | Clone repo | `git clone` |
-| **Tất cả thành viên** | Tạo nhánh riêng | `git checkout -b feature/...` |
-| **Thành viên** | Commit code | `git add .`, `git commit -m "..."`, `git push` |
-| **Thành viên** | Tạo Pull Request → develop | Thực hiện trên GitHub |
-| **Trưởng nhóm** | Review & merge | Merge trên GitHub hoặc CLI |
-| **Trưởng nhóm** | Merge final vào main | `git checkout main`, `git merge develop` |
-| **Trưởng nhóm** | Tag version & release | `git tag -a v1.0`, `git push origin v1.0` |
+Go to the Firebase Console.
 
----
+Create a new project.
 
-## ⚠️ VII. Lưu ý quan trọng
+Add an Android App to your Firebase project.
 
-1. ❌ Không push trực tiếp vào `main` hoặc `develop` (chỉ trưởng nhóm được phép).  
-2. ✅ Mỗi commit phải rõ ràng, mô tả đúng nội dung thay đổi.  
-3. 🔄 Trước khi push code, luôn `pull origin develop` để tránh xung đột.  
-4. ⚙️ Nếu có conflict khi merge → dùng Android Studio hoặc `git mergetool` để xử lý.  
-5. 🧹 Luôn test tính năng trước khi gửi Pull Request.  
+Package Name: You can find this in android/app/build.gradle (usually com.example.ecmobile or similar).
 
----
+Download the google-services.json file provided by Firebase.
 
+Move this file into the android/app/ directory of this project.
+
+(Optional) Enable Cloud Firestore in your Firebase Console and create a collection named products (or update the code to match your collection name).
+
+5. Running the App
+
+Start an Emulator: In Android Studio, go to Device Manager and launch a Virtual Device (AVD), or connect a physical Android device via USB.
+
+Run: Click the green Play (Run) icon in the top toolbar, or run this command in the terminal:
+
+flutter run
 
 
-## ✅ Kết quả mong đợi
+📂 Project Structure
 
-- `main` → Bản hoàn chỉnh, chạy ổn định.  
-- `develop` → Bản đang phát triển, luôn được cập nhật.  
-- `feature/*` → Nơi từng thành viên làm việc độc lập, không chồng code.  
+lib/
+├── models/         # Data models (Product, etc.)
+├── screens/        # UI Screens (Homepage, Details, etc.)
+├── widgets/        # Reusable custom widgets
+├── services/       # Firebase service logic
+└── main.dart       # Entry point of the application
+assets/             # Images and icons
 
----
 
-📄 **Tài liệu này nên được lưu trong repo với tên:**
-```
-HDSD_LamViecNhom_GitHub.md
-```
+🤝 Contributing
+
+Contributions are welcome! If you have suggestions for improvements or bug fixes:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/YourFeature).
+
+Commit your changes.
+
+Push to the branch and open a Pull Request.
+
+📄 License
+
+This project is open-source and available for use and modification.
