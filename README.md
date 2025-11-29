@@ -36,6 +36,7 @@ Open your terminal or command prompt and run:
 git clone [https://github.com/ThinkingT1/Dynamic-Electronic-Devices-E-commerce-Homepage-Mobile-App.git](https://github.com/ThinkingT1/Dynamic-Electronic-Devices-E-commerce-Homepage-Mobile-App.git)
 
 
+
 Option B: Download ZIP
 
 Click on the green Code button at the top of this repository.
@@ -61,6 +62,7 @@ Open the terminal within Android Studio (usually at the bottom) or your system t
 flutter pub get
 
 
+
 4. Firebase Configuration ⚠️ (Crucial Step)
 
 This project relies on Firebase Cloud Firestore. For security reasons, the google-services.json file is not included in this repository. You must add your own to run the app.
@@ -77,15 +79,25 @@ Download the google-services.json file provided by Firebase.
 
 Move this file into the android/app/ directory of this project.
 
-(Optional) Enable Cloud Firestore in your Firebase Console and create a collection named products (or update the code to match your collection name).
+Enable Cloud Firestore: In the Firebase Console, go to Build > Firestore Database and click Create Database. Start in Test Mode for easy setup.
 
-5. Running the App
+5. Database Setup (Schema) 🗄️
+
+For the app to display data, you must populate your Firestore Database with a collection named products.
+
+In your Firestore Database, create a collection named: products
+
+Add documents with the following fields (check lib/models/product_model.dart for exact field names):
+
+
+6. Running the App
 
 Start an Emulator: In Android Studio, go to Device Manager and launch a Virtual Device (AVD), or connect a physical Android device via USB.
 
 Run: Click the green Play (Run) icon in the top toolbar, or run this command in the terminal:
 
 flutter run
+
 
 
 📂 Project Structure
@@ -97,6 +109,7 @@ lib/
 ├── services/       # Firebase service logic
 └── main.dart       # Entry point of the application
 assets/             # Images and icons
+
 
 
 🤝 Contributing
