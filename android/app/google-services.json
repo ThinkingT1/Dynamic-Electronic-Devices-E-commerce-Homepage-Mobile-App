@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "771277167632",
+    "project_id": "ecmobile-2e7c7",
+    "storage_bucket": "ecmobile-2e7c7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771277167632:android:8bf50544a56e902ea33e95",
+        "android_client_info": {
+          "package_name": "com.example.ecmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771277167632-qjik10voq64l1g6n0b1aukeda5omoito.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecmobile",
+            "certificate_hash": "3122a3637795fa6062b487319a6a9d034fd0b1b8"
+          }
+        },
+        {
+          "client_id": "771277167632-kim7f2muks4ablsjidb0ehjfpj0sd5m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq6ASlb3xQZcUUUt-HkXqXHovXKqcoqdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771277167632-kim7f2muks4ablsjidb0ehjfpj0sd5m7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "771277167632-m80n4b5imcs74gubrnrdhk17fuhgnllq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ecmobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

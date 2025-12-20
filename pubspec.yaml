@@ -1,0 +1,131 @@
+name: ecmobile
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+    # --- THÊM THƯ VIỆN NÀY ĐỂ GỌI API ---
+  http: ^1.6.0 # (hoặc phiên bản mới hơn)
+  flutter_displaymode: ^0.6.0
+    # ---
+  google_generative_ai: ^0.4.7 # Kiểm tra phiên bản mới nhất nếu có
+  image_picker: ^1.0.4  # Thêm thư viện này để chọn ảnh
+  flutter_launcher_icons: "^0.13.1" # <--- THÊM DÒNG NÀY
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+    # --- 2 thư vien thanh toan ---
+  random_string: ^2.3.1
+  flutter_spinkit: ^5.2.0
+    # ---
+  firebase_core: ^4.2.1
+  cloud_firestore: ^6.1.0
+  shared_preferences: ^2.2.2
+  firebase_auth: ^6.1.2
+  google_sign_in: ^6.2.1
+
+  firebase_storage: ^13.0.4
+
+dev_dependencies:
+  flutter_native_splash: ^2.4.0
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  intl: ^0.18.0
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  assets:
+    - assets/images/
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+    # fonts:
+    #   - family: Inter
+    #     fonts:
+    #       - asset: assets/fonts/Inter-Regular.ttf
+    #       - asset: assets/fonts/Inter-Bold.ttf
+    #         weight: 700
+    #       - asset: assets/fonts/Inter-Italic.ttf
+    #         style: italic
+    #       - asset: assets/fonts/Inter-SemiBold.ttf
+    #         weight: 600
+
+    # Xóa hoặc comment dòng khai báo 'assets/fonts/'
+    # assets:
+    # - assets/fonts/ # <-- Thêm # hoặc xóa dòng này
+    # - assets/images/
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
+
+dependency_overrides:
+  carousel_slider:
+    git:
+      url: https://github.com/serenader2014/flutter_carousel_slider.git
+      ref: master
+
+carousel_slider: ^4.2.1
+firebase_core: ^2.27.0
+cloud_firestore: ^4.15.8
+intl: ^0.19.0 # Để định dạng tiền tệ
+flutter_launcher_icons:
+  # Thiết lập chung
+  android: true
+  ios: true
+  # ĐƯỜNG DẪN ĐẾN ICON CỦA BẠN (Đã chuẩn bị ở B1)
+  image_path: "assets/images/logo_darter.png"
+  min_sdk_android: 21 # SDK tối thiểu của Android.
+
